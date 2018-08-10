@@ -13,6 +13,9 @@ $(document).ready(function() {
         randomNumberFromRange();
         randomCrystalNumbers();
         score = 0;
+        displayScore();
+    }
+    function displayScore() {
         document.getElementById("userGuessAdding_display").innerHTML = score;
     }
         //GOAL NUMBER RANDOM # GENERATOR - Show random number between 19 - 120
@@ -26,7 +29,6 @@ $(document).ready(function() {
         for (var i =0; i <crystals.length; i++){
             function randomCrystalNumbers() {
                 crystals[i] = (Math.floor(Math.random() * 12) +1);
-                console.log(crystals[i]);
             }
         randomCrystalNumbers();
         }
@@ -45,7 +47,7 @@ $(document).ready(function() {
         $(".crystal_button").click(function() {
             userGuess = parseInt($(this).val()); // this is pulling from this current context (.crystal_button) which is then taking value from the for loop above
             score += userGuess; // score = userGuess + score;
-            document.getElementById("userGuessAdding_display").innerHTML = score;
+            displayScore();
 
             // If statements matching userGuess to goalNumber
             if (score === goalNumber) {
@@ -57,7 +59,13 @@ $(document).ready(function() {
                 alert("loser");
                 reset();
             };
-        });
+            //HTML Input
+            var html = 
+            "<p>Wins: " + wins + "</p>" +
+            "<p>Losses: " + losses + "</p>";
+    
+            document.querySelector("#wins_losses").innerHTML = html;
 
+        });
 ready()
 });

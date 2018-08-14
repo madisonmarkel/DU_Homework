@@ -6,7 +6,7 @@ $(document).ready(function() {
     var userChoice;
     var allQuestions = [
         {
-        question: "What artist cut off his ear?",
+        question: "What artist cut off his ear?", // allQuestions[0].questions in a loop allQuestions[i].questions
         choices: ["Van Gogh", "Manet", "Pisarro", "Renoir"],
         rightAnswer: 1
         },
@@ -22,16 +22,21 @@ $(document).ready(function() {
         // 10 second timer functions
         function tenSeconds() {
             setTimeout(function () {
-                $("#timer").html("<p>Seconds left: " + number + "</p>")
                 number--;
-                tenSeconds();
+                $("#timer").html("<p>Seconds left: " + number + "</p>")
+                if (number === 0){
+                    stopTime();
+                } else {
+                    tenSeconds();
+                }
             }, 1000);
         }
         // Stop Timer Function
         function stopTime() {
             if (number === 0) {
                 clearTimeout(number);
-                number = 0;
+                number < 0;
+                alert("go to next question");
             }
         };
     
@@ -48,7 +53,7 @@ $(document).ready(function() {
         $("#option0").prop('checked', true);
     };
 
-    // CHECKING IF USER ANSWER IS RIGHT -- NOT WORKING
+    // CHECKING IF USER ANSWER IS RIGHT -- NOT WORKING?
     function checkAns() {
         if ($("input[name=option]:checked").val() == allQuestions[currentquestion].correctAnswer) {
           correctAnswers++;
@@ -76,10 +81,6 @@ $(document).ready(function() {
             wrongAnswerScore--;
             alert("wrong guess, the right guess was: " + rightAnswer);
             //move onto next question function
-        } else if (number === 0) {
-            alert("fdslajl")
-            stopTime();
-        } else {
             //how to end?? end function?
         };
         // else if you choose the wrong question it adds to the wrongAnswers > displays "wrong, this was the right answer > moves onto next question"

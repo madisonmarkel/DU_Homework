@@ -2,13 +2,13 @@ $(document).ready(function() {
     // VARIABLES
     var correctAnswerScore = 0;
     var wrongAnswerScore = 0;
-    var number = 10;
     var userChoice;
     var allQuestions = [
         {
         question: "What artist cut off his ear?", // allQuestions[0].questions in a loop allQuestions[i].questions
         choices: ["Van Gogh", "Manet", "Pisarro", "Renoir"],
-        rightAnswer: 1
+        rightAnswer: 1,
+        timerLength: 30
         },
         {
         question: "Which artist was NOT apart of the Abstract Expressionist Movement?",
@@ -20,25 +20,28 @@ $(document).ready(function() {
 
     // TIMER FUNCTIONS
         // 10 second timer functions
-        function tenSeconds() {
+        function tenSeconds(number = 10) {
             setTimeout(function () {
                 number--;
-                $("#timer").html("<p>Seconds left: " + number + "</p>")
+                $("#timer").html("<p>Seconds left: " + number + "</p>") // display timer
                 if (number === 0){
                     stopTime();
                 } else {
-                    tenSeconds();
+                    tenSeconds(number);
                 }
             }, 1000);
         }
         // Stop Timer Function
         function stopTime() {
-            if (number === 0) {
-                clearTimeout(number);
-                number < 0;
-                alert("go to next question");
-            }
+            clearTimeout(number);
+            alert("go to next question");
         };
+
+        // Submit button function
+        $("#submit").click(function() {
+            alert("this is a string");
+        });
+        
     
     // DISPLAY QUESTIONS FUNCTION: https://codereview.stackexchange.com/questions/122837/simple-javascript-quiz-application-with-radio-buttons
     function displayQuestions() {
@@ -48,6 +51,8 @@ $(document).ready(function() {
         for (var i = 0; i < options.length; i++) {
             formHtml += '<div><input type="radio" name="option" value="' + i + '" id="option' + i + '"><label for="option' + i + '">' +
             allQuestions[currentQuestion].choices[i] + '</label></div><br/>';
+            //html for submit button
+            //make a submit button function with a click event function that moves onto next question
         }
         $('#form').html(formHtml);
         $("#option0").prop('checked', true);
@@ -64,12 +69,14 @@ $(document).ready(function() {
         function reset() {
         };
 
+
+//put into reset function
     // QUESTIONS
     //for loop going through the questions
     for (var i = 0; i < allQuestions.length; i++) {
         console.log("dilly dilly");
         //Timer Starts
-        tenSeconds();
+        tenSeconds(allQuestions[i].timerLength);
         displayQuestions();
         // if number === 0 then.....
         // if statements that if you choose right question it adds to correctAnswers > displays "congrats, right answer" > moves onto next question
@@ -86,6 +93,7 @@ $(document).ready(function() {
         // else if you choose the wrong question it adds to the wrongAnswers > displays "wrong, this was the right answer > moves onto next question"
 
     };
+    // put a final screen with score functions here
 
 ready();
 });

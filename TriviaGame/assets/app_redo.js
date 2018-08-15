@@ -2,20 +2,33 @@ $(document).ready(function() {
 
     // Global Variables
     var questions = ["blah", "blah 2", "bob loblaw"]
-    var currentQuestion = 0;
+    var currentQuestionIndex = 0;
 
     // Submit Button
     $("#submit").click(function() {
-        currentQuestion++;
-        displayQuestion(currentQuestion);
+        currentQuestionIndex++;
+
+        // CJ: Is answer correct?
+        // CJ: Record score
+
+        if (questions[currentQuestionIndex]) {
+            displayQuestion(currentQuestionIndex);
+        } else {
+            //diplay end screen
+            // CJ: show score
+            // Allow game reset
+            alert("no more questions, game complete")
+        };
     });
 
     // Display question
     function displayQuestion(questionNumber) {
-        var currentQuestion = questions[questionNumber];
+        var requestedQuestion = questions[questionNumber];
 
         //actually displaying
-        $("#questions").html(currentQuestion);
+        $("#questions").html(requestedQuestion);
+
+        // CJ: start timer
     }
 
 
@@ -24,5 +37,5 @@ $(document).ready(function() {
 
 
     // Initial page load
-    displayQuestion(currentQuestion);
+    displayQuestion(currentQuestionIndex);
 });

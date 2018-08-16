@@ -1,3 +1,8 @@
+// display timer
+// first question has questions, possible qnaswer, correct answer
+// move thorugh questions with a submit
+// next build submit that goes through questions
+
 $(document).ready(function() {
     // VARIABLES
     var correctAnswerScore = 0;

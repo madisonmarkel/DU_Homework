@@ -5,65 +5,115 @@ $(document).ready(function() {
         {
         question: "What artist cut off his ear?", // 
         choices: ["Van Gogh", "Manet", "Pisarro", "Renoir"],
-        rightAnswer: 1,
-        timerLength: 30
+        rightAnswer: 0,
         },
         {
         question: "Which artist was NOT apart of the Abstract Expressionist Movement?",
         choices: ["Michaelango", "Clyfford Still", "Jackson Pollock", "Robert Motherwell"],
-        rightAnswer: 1
+        rightAnswer: 0
         },
         {
         question: "Who painted the Guernica?",
         choices: ["YoMama", "Mother Theresa", "Obama", "Picasso"],
-        rightAnswer: 1
+        rightAnswer: 3
+        },
+        {
+        question: "What type of glue can be used to prime canvas?",
+        choices: ["Polyurethane", "Elmers", "Rabbit Skin", "Epoxy"],
+        rightAnswer: 2
         },
     ]
     var currentQuestionIndex = 0;
+    var correctAnswers = 0;
+    var timer;
 
-    // Submit Button
+    // SUBMIT BUTTON FUNCTION - This is driving the game, it's like a for loop due to the currentQuestionIndex increment
     $("#submit").click(function() {
+        checkAnswer();
         currentQuestionIndex++;
-
-        // CJ: Is answer correct?
+        clearTimeout();
+        tenSeconds();
+        console.log(correctAnswers);
         // CJ: Record score
-
         if (allQuestions[currentQuestionIndex]) {
             displayQuestion(currentQuestionIndex);
         } else {
-            //diplay end screen
-            // CJ: show score
-            // Allow game reset
-            alert("no more questions, game complete");
+            //diplay end screen/score
+            $("#end_screen").html("<p>You guessed " + correctAnswers + " correctly</p>");
+            // calls reset button
+            reset();
         };
     });
 
-    // Display question
+    // CHECKING IF USER ANSWER IS RIGHT FUNCTION- WORKING
+    function checkAnswer() {
+        if ($("input[name=option]:checked").val() == allQuestions[currentQuestionIndex].rightAnswer) {
+          correctAnswers++;
+        };
+      };
+
+    // RESET FUNCTION -- NOT COMPLETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    function reset() {
+        correctAnswers = 0;
+        stopTime();
+        //creating a reset button
+        var resetButton = $("<button>").text("Reset");
+        $("#reset_button").append(resetButton);
+    }
+
+    // TIMER FUNCTIONS
+        // 10 second timer functions
+        function tenSeconds(number = 10) {
+            // Stop Timer Function
+            clearTimeout(timer);
+            displayTime(number);
+            //Start timer function
+            timer = setTimeout(function () {
+                number--;
+                if (number === 0){
+                    stopTime();
+                } else {
+                    tenSeconds(number);
+                }
+            }, 1000);
+            
+        };
+
+        function stopTime() {
+            clearTimeout(timer);
+            // bug right here, do something when time stops
+            displayTime(0);
+            currentQuestionIndex++;
+            // move to next question!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            // dynamically change the whole container???
+        }
+
+        function displayTime(number) {
+            $("#timer").html("<p>Seconds left: " + number + "</p>"); // display timer
+        }
+
+    // DISPLAY QUESTION FUNCTION - WORKING
     function displayQuestion(questionNumber) {
         var requestedQuestion = allQuestions[questionNumber];
         console.log(requestedQuestion);
         //actually displaying
-        $("#questions").html(requestedQuestion.question);
-
-        // need to make these radio choices in a for loop???
-        $("#choices").html(requestedQuestion.choices.join(", "));  
+        var outputChoices = "";
+        outputChoices += requestedQuestion.question;
         
-        var options = allQuestions[currentQuestionIndex].choices;
+        // displays radio choices
+        var options = allQuestions[currentQuestionIndex].choices;   
         for (var i = 0; i < options.length; i++) {
+            // Start timer
+            tenSeconds();
             console.log(requestedQuestion.choices[i]);
-            $("#options").html("<div><input type='radio'>" + requestedQuestion.choices[i] + "</input></div>")
+            //putting choices into html
+            outputChoices += '<div><input type="radio" name="option" value="' + i + '" id="option' + i + '"><label for="option' + i + '">' +
+            allQuestions[currentQuestionIndex].choices[i] + '</label></div><br/>';
+
         };
-       // $("#choices").html("<div><input type='radio' name='option' value=''" + requestedQuestion.choices + "</div>")
-
-
-        //display choices array but on the choices array only
-        // CJ: start timer
+        //calling function push out to HTML
+        $('#choices').html(outputChoices);
     }
-
-
-
-
-
 
     // Initial page load
     displayQuestion(currentQuestionIndex);

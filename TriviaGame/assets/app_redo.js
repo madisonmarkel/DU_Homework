@@ -72,24 +72,28 @@ $(document).ready(function() {
                 number--;
                 if (number === 0){
                     stopTime();
+                    moveOntoNextQuestion();
                 } else {
                     tenSeconds(number);
                 }
             }, 1000);
             
         };
-
         function stopTime() {
             clearTimeout(timer);
-            // bug right here, do something when time stops
             displayTime(0);
             currentQuestionIndex++;
-            // move to next question!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // dynamically change the whole container???
         }
 
+        // DISPLAY TIMER
         function displayTime(number) {
             $("#timer").html("<p>Seconds left: " + number + "</p>"); // display timer
+        }
+
+        // MOVES ONTO NEXT QUESTION - NOT WORKING
+        function moveOntoNextQuestion() {
+            currentQuestionIndex++;
+            displayQuestion();
         }
 
     // DISPLAY QUESTION FUNCTION - WORKING

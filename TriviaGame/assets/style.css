@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+}
+/*QUESTIONS*/
+    #choices {
+        background: #d89595;
+        padding: 2em;
+        margin:0;
+        color:#fff;
+        text-shadow:1px 3px 8px #000;
+    }
+    .question_options {
+        margin-top: .5em;
+    }
+/*NEXT BUTTON*/
+    #submit {
+        padding: .5em 1em;
+        margin: 2em;
+        background:#9ad994;
+        color: white;
+        font-size:1em;
+    }
+/*TIMER*/
+    #timer {
+        margin: 0 auto;
+        padding: 0 2em;
+        color: #fff;
+    }
+/*END SCREEN*/
+    #end_screen {
+        background: #d89595;
+        margin: 0;
+        padding: 2em;
+        color: #fff;
+        text-shadow: 1px 3px 8px #000;
+    }
+/*RESET BUTTON*/
+    #reset_button {
+        padding: .5em 1em;
+        margin: 2em;
+    }
+    #reset_button_styling {
+        padding: .5em 1em;
+        margin: 2em;
+        background:#9ad994;
+        color: white;
+        font-size:1em;
+    }

@@ -34,14 +34,20 @@ $(document).ready(function() {
         clearTimeout();
         tenSeconds();
         console.log(correctAnswers);
-        // CJ: Record score
         if (allQuestions[currentQuestionIndex]) {
             displayQuestion(currentQuestionIndex);
         } else {
+            $("#choices").empty();
+            $("#submit").empty();
+            $("#timer").empty();
             //diplay end screen/score
-            $("#end_screen").html("<p>You guessed " + correctAnswers + " correctly</p>");
-            // calls reset button
-            reset();
+            $("#end_screen").html("<p>You guessed " + correctAnswers + " correctly</p>"+"<p> That's " + correctAnswers / 4 * 100 + "%!</p>");
+            //RESET BUTTON
+            //creating button
+                var resetButton = $("<button>").text("Reset").attr("id", "reset_button_styling");
+                //passes reset function into button
+                resetButton.onclick = reset();
+                $("#reset_button").append(resetButton);
         };
     });
 
@@ -55,15 +61,14 @@ $(document).ready(function() {
     // RESET FUNCTION -- NOT COMPLETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     function reset() {
         correctAnswers = 0;
+        console.log(correctAnswers);
         stopTime();
-        //creating a reset button
-        var resetButton = $("<button>").text("Reset");
-        $("#reset_button").append(resetButton);
+        // displayQuestion();
     }
 
     // TIMER FUNCTIONS
         // 10 second timer functions
-        function tenSeconds(number = 10) {
+        function tenSeconds(number = 20) {
             // Stop Timer Function
             clearTimeout(timer);
             displayTime(number);
@@ -72,7 +77,8 @@ $(document).ready(function() {
                 number--;
                 if (number === 0){
                     stopTime();
-                    moveOntoNextQuestion();
+                    $("#choices").empty();
+                    $("#choices").html("<p>Times Up! Go to next question</p>");
                 } else {
                     tenSeconds(number);
                 }
@@ -82,18 +88,10 @@ $(document).ready(function() {
         function stopTime() {
             clearTimeout(timer);
             displayTime(0);
-            currentQuestionIndex++;
         }
-
         // DISPLAY TIMER
         function displayTime(number) {
-            $("#timer").html("<p>Seconds left: " + number + "</p>"); // display timer
-        }
-
-        // MOVES ONTO NEXT QUESTION - NOT WORKING
-        function moveOntoNextQuestion() {
-            currentQuestionIndex++;
-            displayQuestion();
+            $("#timer").html("<p>Seconds left: " + number + "</p>");
         }
 
     // DISPLAY QUESTION FUNCTION - WORKING
@@ -103,7 +101,6 @@ $(document).ready(function() {
         //actually displaying
         var outputChoices = "";
         outputChoices += requestedQuestion.question;
-        
         // displays radio choices
         var options = allQuestions[currentQuestionIndex].choices;   
         for (var i = 0; i < options.length; i++) {
@@ -111,7 +108,7 @@ $(document).ready(function() {
             tenSeconds();
             console.log(requestedQuestion.choices[i]);
             //putting choices into html
-            outputChoices += '<div><input type="radio" name="option" value="' + i + '" id="option' + i + '"><label for="option' + i + '">' +
+            outputChoices += '<div class="question_options"><input type="radio" name="option" value="' + i + '" id="option' + i + '"><label for="option' + i + '">' +
             allQuestions[currentQuestionIndex].choices[i] + '</label></div><br/>';
 
         };

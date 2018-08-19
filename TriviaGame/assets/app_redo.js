@@ -45,9 +45,15 @@ $(document).ready(function() {
             //RESET BUTTON
             //creating button
                 var resetButton = $("<button>").text("Reset").attr("id", "reset_button_styling");
-                //passes reset function into button
-                resetButton.onclick = reset();
+                //href for button
+                var a_href = $('#reset_button').attr('href');
+                $('#reset_button').attr('href','http://www.madisonmarkel.com/DU_Homework/TriviaGame/index.html');
+                //appending button to html
                 $("#reset_button").append(resetButton);
+                //passes reset function into button - reset function is not working
+                /*
+                resetButton.onclick = reset();
+                */
         };
     });
 

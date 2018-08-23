@@ -51,20 +51,18 @@ $(document).ready(function() {
                 //appending button to html
                 $("#reset_button").append(resetButton);
                 //passes reset function into button - reset function is not working
-                /*
                 resetButton.onclick = reset();
-                */
         };
     });
 
-    // CHECKING IF USER ANSWER IS RIGHT FUNCTION- WORKING
+    // CHECKING IF USER ANSWER IS RIGHT FUNCTION - WORKING
     function checkAnswer() {
         if ($("input[name=option]:checked").val() == allQuestions[currentQuestionIndex].rightAnswer) {
           correctAnswers++;
         };
       };
 
-    // RESET FUNCTION -- NOT COMPLETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // RESET FUNCTION -- NOT WORKING
     function reset() {
         correctAnswers = 0;
         console.log(correctAnswers);
@@ -72,7 +70,7 @@ $(document).ready(function() {
         // displayQuestion();
     }
 
-    // TIMER FUNCTIONS
+    // TIMER FUNCTIONS - WORKING
         // 10 second timer functions
         function tenSeconds(number = 20) {
             // Stop Timer Function

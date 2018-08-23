@@ -1,0 +1,15 @@
+/* BUTTONS */
+.btn {
+    background: #eee;
+    padding: .5em 1em;
+    margin-right: .2em;
+}
+/* SEARCH */
+#submit_bar {
+    padding: 2em;
+}
+#submit_button {
+    background: green;
+    color: #fff;
+    padding: .5em 1em;
+}

@@ -50,6 +50,8 @@ $(document).ready(function() {
                     // Creates div to put in the gif request
                     var artistGifsDiv = $("<div>");
                     artistGifsDiv.attr("id", "display_gifs");
+                    var rating = results[i].rating;
+                    showRating = $("<p>Rating: " + rating + "</p>");
                     
                     //Creates an image tag to put the gif
                     var artistGifs = $("<img>");
@@ -61,6 +63,7 @@ $(document).ready(function() {
 
                     // Appends the gifts to the html page
                     (artistGifsDiv).append(artistGifs);
+                    (artistGifsDiv).append(showRating);
                     $("#display_gifs").prepend(artistGifsDiv);
 
                     // START AND PAUSE GIFS FUNCTION
@@ -78,14 +81,15 @@ $(document).ready(function() {
                             };
                         });
                     }
-                    startAndPause()
+                    
                 }
 
+                startAndPause()
             });
 
         });
     };
-
+    displayArtist()
     // Adding click event listeners to all elements
     $(document).on("click", ".btn", displayArtist);
 });

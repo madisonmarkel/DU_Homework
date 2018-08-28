@@ -29,7 +29,6 @@ $(document).ready(function() {
         // Calls the renderButton function so that it's "local" and can access this on click function (ESSENTIAL)
         renderButton();
     });
-    renderButton();
 
     //ON CLICK API CALL
     function displayArtist() {
@@ -89,7 +88,9 @@ $(document).ready(function() {
 
         });
     };
-    displayArtist()
+    displayArtist();
     // Adding click event listeners to all elements
     $(document).on("click", ".btn", displayArtist);
+    
+    renderButton();
 });

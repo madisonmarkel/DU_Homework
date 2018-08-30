@@ -23,7 +23,6 @@ $(document).ready()
   // -------------------- SUBMIT BUTTON ON CLICK -------------------- 
   // Creating the initial .on("click") event
   $("#add_train").on("click", function(event) {
-    alert("wow");
      event.preventDefault();
 
      // Grabbed values from text boxes
@@ -36,19 +35,21 @@ $(document).ready()
      var currentTime = moment();
      console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
      //difference between first time train and now
-     var trainTimeModified = moment(firstTrainTimeInput, "hh:mm");
-     console.log(trainTimeModified);
+     var trainTimeModified = moment(firstTrainTimeInput, "HH:mm").subtract(1, "years");
+     console.log("first train time " + trainTimeModified);
      //difference between first time train and now
      var diffTime = moment().diff(moment(trainTimeModified), "minutes");
-     console.log(diffTime);
+     console.log("difference in time " + diffTime);
      //time apart (remainder)
      var remainingTime = diffTime % frequencyInput;
-     console.log(remainingTime);
+     console.log("remaining time " + remainingTime);
      // difference between current time (now) and next arrival
      var minutesAway = frequencyInput - remainingTime;
-     console.log(minutesAway);
+     console.log("minutes away " + minutesAway);
      // combo of first time train and frequency
-     var nextArrival = (moment(nextArrival).format("hh:mm"));
+     var nextArrival = moment(moment().add(minutesAway, "minutes")).format("HH:mm");
+    //  var nextArrival = (moment(minutesAway).format("hh:mm"));
+     console.log("next arrival " + nextArrival);
 
 
      // Code for handling the push

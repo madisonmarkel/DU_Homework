@@ -51,22 +51,22 @@
 <h3>Screenshots show expected outputs:</h3>
 
 <h4>spotify-this-song:</h4>
-![spotify-this-song](./images/spotify-this-song.png?raw=true "spotify-this-song")
+<img src="./images/spotify-this-song.png"/>
 
 <h4>spotify-this-song Hello:</h4>
-![spotify-this-song Hello](./images/spotify-this-song-hello.png?raw=true "spotify-this-song Hello")
+<img src="./images/spotify-this-song-hello.png"/>
 
 <h4>movie-this:</h4>
-![movie-this](./images/movie-this.png?raw=true "movie-this")
+<img src="./images/movie-this.png"/>
 
 <h4>movie-this Inglorious Bastards:</h4>
-![movie-this Inglorious Bastard](./images/movie-this-inglorious-bastards.png?raw=true "movie-this Inglorious Bastard")
+<img src="./images/movie-this-inglorious-bastards.png"/>
 
 <h4>concert-this:</h4>
-![concert-this](./images/concert-this.png?raw=true "concert-this")
+<img src="./images/concert-this.png"/>
 
 <h4>concert-this Anderson .paak:</h4>
-![concert-this Anderson .paak](./images/concert-this_paak.png?raw=true "concert-this Anderson .paak")
+<img src="./images/concert-this_paak.png"/>
 
 <h4>do-what-it-says:</h4>
-![do-what-it-says](./images/do-what-it-says.png?raw=true "do-what-it-says")
+<img src="./images/do-what-it-says.png">

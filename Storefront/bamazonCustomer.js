@@ -18,108 +18,80 @@
         showInventory();
     });
 // INQUIRER SET UP
-var inquirer = require("inquirer");
+    var inquirer = require("inquirer");
 
 
 
 //SHOW INVENTORY FUNCTION
-function showInventory() {
-    connection.query("SELECT * FROM products", function(err, response){
-        if(err) throw(err);
-        var newResponse= [];
-        for (var i=0; i < response.length; i++) {
-            let newObj = {
-                id: response[i].item_id,
-                name: response[i].product_name,
-                price: response[i].price
-            }
-            newResponse.push(newObj);
-        };
-        console.table(newResponse);
-        buy();
-    });
-};
+    function showInventory() {
+        connection.query("SELECT * FROM products", function(err, response){
+            if(err) throw(err);
+            var newResponse= [];
+            for (var i=0; i < response.length; i++) {
+                let newObj = {
+                    id: response[i].item_id,
+                    name: response[i].product_name,
+                    price: response[i].price
+                }
+                newResponse.push(newObj);
+            };
+            console.table(newResponse);
+            buy();
+        });
+    };
 
 // WHATCHA WANNA BUY
-function buy(){
-    inquirer.prompt ([
-        {
-            type:"input",
-            name:"wantID",
-            message:"What product would you like to buy? (ID number): "
-        },
-        {
-            type:"input",
-            name:"wantQuantity",
-            message:"How many do you want?",
-            validate: function(value) {
-                if (isNaN(value) === false) {
-                  return true;
-                }
-                return false;
-              }      
-        }
-    ]).then(function(purchaseInfo){
-        connection.query("SELECT stock_quantity FROM products WHERE ?", { item_id: purchaseInfo.wantID }, function(err, res) {
-            //console.log("Your card has been charged: $" + res[0].price * parseInt(purchaseInfo.wantQuantity));
-            
-            if (purchaseInfo.wantQuantity <= res[0].stock_quantity) {
-                yaCanPurchaseDat(purchaseInfo);
-                connection.end();
-            } else {
-                console.log("Out of stock");
-                connection.end();
-            };
-        });
-    })
-};
-
-function yaCanPurchaseDat(purchaseInfo) {
-    // console.log("Want ID: " + purchaseInfo.wantID);
-    // console.log("Want Quantity: " + purchaseInfo.wantQuantity);
-        var query = connection.query("UPDATE products SET ? WHERE ?", 
-        [
+    function buy(){
+        inquirer.prompt ([
             {
-                stock_quantity: stock_quantity =- purchaseInfo.wantQuantity
+                type:"input",
+                name:"wantID",
+                message:"What product would you like to buy? (ID number): "
             },
             {
-                item_id: purchaseInfo.wantID
+                type:"input",
+                name:"wantQuantity",
+                message:"How many do you want?",
+                validate: function(value) {
+                    if (isNaN(value) === false) {
+                    return true;
+                    }
+                    return false;
+                }      
             }
-        ],
-        function(err, res){
-            // console.log(res.affectedRows);
-            console.log("Thank you for your purchase.")
-        });
+        ]).then(function(purchaseInfo){
+            connection.query("SELECT stock_quantity FROM products WHERE ?", { item_id: purchaseInfo.wantID }, function(err, res) {
+                //console.log("Your card has been charged: $" + res[0].price * parseInt(purchaseInfo.wantQuantity));
+                
+                if (purchaseInfo.wantQuantity <= res[0].stock_quantity) {
+                    yaCanPurchaseDat(purchaseInfo);
+                    connection.end();
+                } else {
+                    console.log("Out of stock");
+                    connection.end();
+                };
+            });
+        })
+    };
 
-        connection.query("SELECT price FROM products WHERE ?", { item_id: purchaseInfo.wantID }, function(err, res) {
-            console.log("Your card has been charged: $" + res[0].price * parseInt(purchaseInfo.wantQuantity))
-        });
-}
+    function yaCanPurchaseDat(purchaseInfo) {
+        // console.log("Want ID: " + purchaseInfo.wantID);
+        // console.log("Want Quantity: " + purchaseInfo.wantQuantity);
+            var query = connection.query("UPDATE products SET ? WHERE ?", 
+            [
+                {
+                    stock_quantity: stock_quantity =- purchaseInfo.wantQuantity
+                },
+                {
+                    item_id: purchaseInfo.wantID
+                }
+            ],
+            function(err, res){
+                // console.log(res.affectedRows);
+                console.log("Thank you for your purchase.")
+            });
 
-// function yaCannotPurchaseDat(purchaseInfo) {
-//     connection.query("SELECT * FROM products", function(err, response) {
-//         if (err) throw err;
-//         // Insufficient quantity alert
-//         if(purchaseInfo.stock_quantity === 0){
-//             console.log("Out of stock.");
-//             connection.end();
-//         };
-//         // Process order
-//         if(purchaseInfo.stock_quantity > 0){
-//             purchaseInfo.stock_quantity =- purchaseInfo.wantQuantity;
-//             console.log("Your card has been debited $" + purchaseInfo.price);
-//             //UPDATE QUANTITY
-//             var query = connection.query(
-//                 "UPDATE products SET ? WHERE ?",
-//                 [
-//                   {
-//                     //stock_quantity =- wantQuantity
-//                   }
-//                 ],
-//                 function(err, res) {
-//                   console.log(res.affectedRows + " thank you for your purchase!\n");
-//                 }
-//               );
-//         }
-//       });
-// }
+            connection.query("SELECT price FROM products WHERE ?", { item_id: purchaseInfo.wantID }, function(err, res) {
+                console.log("Your card has been charged: $" + res[0].price * parseInt(purchaseInfo.wantQuantity))
+            });
+    }

@@ -25,7 +25,7 @@
 --------------------------------------------------------------------------------------------------------
 
 <h2>Using the App:</h2>
-<p>The application pulls from (and pushes to) a MySQL database. The user interface is built through Inquirer that interacts with the database through connection.query.</p>
+<p>The application pulls from (and pushes to) a MySQL database. The user interface is built through Inquirer that interacts with the database through connection.query. Inquirer prompts the user for a response through a list of choices, so the user does not need to know commands to use the application.</p>
 
 <h3>Customer View</h3>
 <p>Customers' functuality is limited to viewing and purchasing:</p>

@@ -13,10 +13,20 @@
   <li>mysql</li>
   <li>console.table</li>
 </ul>
+<p>A MySQL database containing a table (called products) is in use:</p>
+    <ul>
+        <li>item_id: auto incrementing</li>
+        <li>product_name</li>
+        <li>department_name</li>
+        <li>price</li>
+        <li>stock_quantity</li>
+    </ul>
 
 --------------------------------------------------------------------------------------------------------
 
 <h2>Using the App:</h2>
+<p>The application pulls from (and pushes to) a MySQL database. The user interface is built through Inquirer that interacts with the database through connection.query.</p>
+
 <h3>Customer View</h3>
 <p>Customers' functuality is limited to viewing and purchasing:</p>
     <ul>
@@ -49,6 +59,7 @@
         <li>View the products with 5 or fewer items left</li>
         <li>Add completely new products to the database</li>
         <li> Update existing items' stock quantity.</li>
+    </ul>
 
 --------------------------------------------------------------------------------------------------------
 

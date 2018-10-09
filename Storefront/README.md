@@ -4,7 +4,7 @@
 <ul>
  <li>Customer</li>
  <li>Manager</li>
-<ul>
+</ul>
 <p>Each view has different capabilities according to their access level.</p>
 
 <p>In order to use this application, you will have to do several NPM installs.</p>

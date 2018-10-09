@@ -1,4 +1,4 @@
-<h1>Storefront - mySQL Database</h1>
+<h1>Storefront - mySQL Database &amp; NodeJS</h1>
 <h2>Basics:</h2>
 <p>Storefront is a simply inventory application that stores an ID, Product Name, Department Name, Price, and Stock Quantity in a SQL Database. The app has two "views":</p>
 <ul>

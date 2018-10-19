@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Plant Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada|Open+Sans" rel="stylesheet">
+    <!-- FAVICON -->
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Lotos_flower_symbol.svg/340px-Lotos_flower_symbol.svg.png" type="image/x-icon" />
+</head>
+<body>
+    <!-- HERO INTRO -->
+    <div class="hero_image">
+        <div class="site_width">
+            <h1>Plant Tinder</h1>
+                <h2>Find the plant you wont kill*</h2>
+        </div>
+    </div>
+    <!-- INTRO -->
+    <div class="survey">
+        <div class="site_width">
+            <form>
+                <h3>Name:</h3>
+                <input type="input" name="user_name" required>
+                <h3>Link to Photo:</h3>
+                <input type="input" name="user_photo" required>
+
+                <h3>I have a green thumb.</h3>
+                    <select id="question_1">
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+
+                <h3>I remember to water my plants regularly.</h3>
+                    <select id="question_2">
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+
+                <h3>There is a sunny spot to put my plant.</h3>
+                    <select id="question_3">
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+
+                <h3>My home doesn't get a lot of direct sunlight.</h3>
+                    <select id="question_4">
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+
+                <h3>I leave town often.</h3>
+                    <select id="question_5">
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+
+                <h3>This is my first plant.</h3>
+                    <select id="question_6">
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+
+                <h3>I live in a harsh weather climate.</h3>
+                    <select id="question_7">
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+
+                <h3>I have a garden.</h3>
+                    <select id="question_8">
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+
+                <h3>I prefer house plants.</h3>
+                    <select id="question_9">
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+
+                <h3>I prefer outdoor plants.</h3>
+                    <select id="question_10">
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+            </form>
+            <br>
+            <button class="btn" id="survey_submit">Submit</button>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="site_width">
+                <p>*no guarantees. <a href="https://youtu.be/GibiNy4d4gc?t=95">plants die.</a></p>
+            <a href="/api/friends">API Plant List</a> | <a href="">GitHub Repo</a>
+        </div>
+    </footer>
+
+    <!-- BOOTSTRAP MODAL -->
+    <div class="modal" tabindex="-1" role="dialog" id="plants-modal">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">GET YO PLANT</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Based off your ability to nurture (or lack thereof), your best plant match is:</p>
+                  <h2 id="matchName"></h2>
+                    <img id="matchPic" src="">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- BOOTSTRAP JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javsacript" src="../../server.js"></script>
+    <script type="text/javascript" src="../data/friends.js"></script>
+    <script type="text/javascript" src="../routing/htmlRoutes.js"></script>
+    <script type="text/javascript" src="../routing/apiRoutes.js"></script>
+
+    <script>
+        $("#survey_submit").click(function(event){
+            event.preventDefault();
+
+            //GATHERS USER DATA
+            var userData = {
+                 name: $("#user_name").val(),
+                 photo: $("#user_photo").val(),
+                 scores: [
+                    $("#question_1").val(),
+                    $("#question_2").val(),
+                    $("#question_3").val(),
+                    $("#question_4").val(),
+                    $("#question_5").val(),
+                    $("#question_6").val(),
+                    $("#question_7").val(),
+                    $("#question_8").val(),
+                    $("#question_9").val(),
+                    $("#question_10").val(),
+                 ]
+            };
+            //===============API POST PATH - NOT WORKING
+                $.post("/api/friends", userData, function(data) {
+                    // get data from JSON about best match
+                    $("#matchName").text(data.name);
+                    $("#matchPic").attr("src", data.photo);
+                    // shows modal
+                    // Show the modal with the best match
+                    $("#plants-modal").modal("toggle");
+
+                });
+        });
+
+        $(".modal").on("hidden.bs.modal", function () {
+            window.location = "/";
+        });
+    </script>
+
+</body>
+</html>

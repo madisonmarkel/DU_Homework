@@ -1,0 +1,64 @@
+/* BASICS */
+body {
+    max-width: 100%;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+h1, h2, h3 {
+    font-family: 'Montserrat Subrayada', sans-serif;
+    font-size:2.3em;
+    font-weight: 400;
+}
+h2 {
+    opacity: .8;
+    font-size: 2em;
+}
+h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+
+}
+p {
+    margin-bottom: 2.3em;
+}
+.site_width {
+    max-width: 50rem;
+    margin: 0 auto;
+}
+.btn {
+    padding: .5em 1em;
+    border-radius: .5em;
+    background: #cc344f;
+    color:#fff;
+    text-decoration:none;
+    margin:0 auto;
+}
+
+/* LAYOUT */
+.hero_image {
+    background: #085208;
+    color:#fff;
+    text-align: center;
+    padding: 1em 0;
+}
+/* HOME */
+    /* INTRO */
+    .intro {
+        background: #eee;
+        padding: 2em 0;
+    }
+    /*FOOTER*/
+    footer {
+        background: #eee;
+        padding: 2em 0;
+    }
+
+/* SURVEY */
+    /* QUESTIONS*/
+    .survey {
+        padding: 1em 0;
+    }
+    #matchPic {
+        max-width:12em;
+    }

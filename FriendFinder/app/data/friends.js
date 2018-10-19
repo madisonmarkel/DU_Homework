@@ -19,14 +19,14 @@ var plants = [
     name:"Devil's Ivy",
     photo:"http://weplants.com.au/wp-content/uploads/2014/05/product23.jpg",
     scores:[
+        "1",
+        "3",
+        "2",
         "2",
         "4",
-        "3",
-        "3",
-        "3",
+        "4",
         "2",
-        "2",
-        "3",
+        "1",
         "5",
         "1"
       ]

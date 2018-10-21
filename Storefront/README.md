@@ -44,6 +44,11 @@
                 <li>See final price</li>
             </ul>
     </ul>
+    
+<h4>Customer Purchase Example (In Stock)</h4>
+    <img src="http://www.madisonmarkel.com/DU_Homework/Storefront/screenshots/customer-instock.png">
+<h4>Customer Purchase Example (Out Of Stock)</h4>
+    <img src="http://www.madisonmarkel.com/DU_Homework/Storefront/screenshots/customer-outofstock.png">
 
 <h3>Manager View</h3>
 <p>The manager's view is greatly expanded. They have the capability to view:</p>
@@ -60,7 +65,17 @@
         <li>Add completely new products to the database</li>
         <li> Update existing items' stock quantity.</li>
     </ul>
+    
+<h4>Manager View Stock</h4>
+    <img src="http://www.madisonmarkel.com/DU_Homework/Storefront/screenshots/manager-viewstock.png">    
+<h4>Manager View Low Stock</h4>
+    <img src="http://www.madisonmarkel.com/DU_Homework/Storefront/screenshots/manager-lowstock.png">
+<h4>Manager Add New Product</h4>
+    <img src="http://www.madisonmarkel.com/DU_Homework/Storefront/screenshots/manager-addnewproduct.png">
+<h4>Manager Update Product</h4>
+    <img src="http://www.madisonmarkel.com/DU_Homework/Storefront/screenshots/manager-updateproduct.png">
 
+    
 --------------------------------------------------------------------------------------------------------
 
 <h2>Results:</h2>

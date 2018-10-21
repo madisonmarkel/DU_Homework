@@ -66,6 +66,8 @@
         <li> Update existing items' stock quantity.</li>
     </ul>
     
+<h4>Manager Choices</h4>
+    <img src="http://www.madisonmarkel.com/DU_Homework/Storefront/screenshots/manager-choices.png"> 
 <h4>Manager View Stock</h4>
     <img src="http://www.madisonmarkel.com/DU_Homework/Storefront/screenshots/manager-viewstock.png">    
 <h4>Manager View Low Stock</h4>
